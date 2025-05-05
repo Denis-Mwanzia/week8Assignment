@@ -6,6 +6,17 @@ USE clinicBookingDb;
 
 -- Table: department
 CREATE TABLE department (
-    department_id INT AUTO_INCREMENT PRIMARY KEY,
+    departmentID INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- Table: doctor
+CREATE TABLE doctor (
+    doctorID INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    departmentID INT NOT NULL,
+    FOREIGN KEY (departmentID)
+      REFERENCES departments(departmentID)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE
 );
