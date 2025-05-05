@@ -81,3 +81,10 @@ INSERT INTO doctor (name, departmentID) VALUES
   ('Dr. Carol Njeri', 3),
   ('Dr. David Kimani', 4),
   ('Dr. Eve Wambui', 5);
+
+-- Patient
+INSERT INTO patient (name, dob, phone) VALUES
+  ('John David',    '1990-01-01', '0712345678'),
+  ('Jane Smith',  '1985-05-20', '0723456789'),
+  ('Mary Johnson','1978-11-15', '0733456780'),
+  ('Peter Munyoki', '2000-06-30', '0744567890');
