@@ -34,7 +34,7 @@ CREATE TABLE appointment (
     appointmentID INT AUTO_INCREMENT PRIMARY KEY,
     patientID INT NOT NULL,
     doctorID INT NOT NULL,
-    appointment_date DATETIME NOT NULL,
+    appointmentDate DATETIME NOT NULL,
     status ENUM('booked','completed','cancelled') NOT NULL DEFAULT 'booked',
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -46,7 +46,7 @@ CREATE TABLE appointment (
       REFERENCES doctors(doctorID)
       ON DELETE RESTRICT
       ON UPDATE CASCADE,
-    CONSTRAINT uc_patient_doctor_datetime UNIQUE (patientID, doctorID, appointment_date)
+    CONSTRAINT uc_patient_doctor_datetime UNIQUE (patientID, doctorID, appointmentDate)
 );
 
 -- Table: prescription
@@ -88,3 +88,12 @@ INSERT INTO patient (name, dob, phone) VALUES
   ('Jane Smith',  '1985-05-20', '0723456789'),
   ('Mary Johnson','1978-11-15', '0733456780'),
   ('Peter Munyoki', '2000-06-30', '0744567890');
+
+-- Appointment
+INSERT INTO appointment (patientID, doctorID, appointmentDate, status) VALUES
+  (1, 1, '2025-05-05 10:00:00', 'booked'),
+  (2, 2, '2025-05-06 14:30:00', 'completed'),
+  (3, 3, '2025-05-07 09:15:00', 'booked'),
+  (4, 4, '2025-05-08 11:45:00', 'cancelled');
+
+  
