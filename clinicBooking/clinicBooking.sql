@@ -48,3 +48,15 @@ CREATE TABLE appointment (
       ON UPDATE CASCADE,
     CONSTRAINT uc_patient_doctor_datetime UNIQUE (patientID, doctorID, appointment_date)
 );
+
+-- Table: prescription
+CREATE TABLE prescription (
+    prescriptionID INT AUTO_INCREMENT PRIMARY KEY,
+    appointmentID INT NOT NULL,
+    medicine TEXT NOT NULL,
+    dosage VARCHAR(50),
+    FOREIGN KEY (appointmentID)
+      REFERENCES appointments(appointmentID)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+);
