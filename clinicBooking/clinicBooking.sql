@@ -73,3 +73,11 @@ INSERT INTO department (name) VALUES
   ('Pediatrics'),
   ('Neurology'),
   ('Orthopedics');
+
+-- Doctor
+INSERT INTO doctor (name, departmentID) VALUES
+  ('Dr. Denis Mwanzia', 1),
+  ('Dr. Bob Otieno', 2),
+  ('Dr. Carol Njeri', 3),
+  ('Dr. David Kimani', 4),
+  ('Dr. Eve Wambui', 5);
