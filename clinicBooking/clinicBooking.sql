@@ -20,3 +20,11 @@ CREATE TABLE doctor (
       ON DELETE RESTRICT
       ON UPDATE CASCADE
 );
+
+-- Table: patient
+CREATE TABLE patient (
+    patientID INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    phone VARCHAR(15) NOT NULL UNIQUE
+);
