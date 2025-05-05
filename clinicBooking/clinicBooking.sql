@@ -96,4 +96,8 @@ INSERT INTO appointment (patientID, doctorID, appointmentDate, status) VALUES
   (3, 3, '2025-05-07 09:15:00', 'booked'),
   (4, 4, '2025-05-08 11:45:00', 'cancelled');
 
-  
+-- Prescription
+INSERT INTO prescription (appointmentID, medicine, dosage) VALUES
+  (2, 'Ibuprofen', '200mg, twice daily after meals'),
+  (3, 'Amoxicillin', '500mg, three times daily'),
+  (4, 'Paracetamol', '500mg, as needed for pain');
