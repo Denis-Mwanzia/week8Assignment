@@ -60,3 +60,16 @@ CREATE TABLE prescription (
       ON DELETE CASCADE
       ON UPDATE CASCADE
 );
+
+
+-- ----------------------------
+-- Sample Data Inserts
+-- ----------------------------
+
+-- Department
+INSERT INTO department (name) VALUES
+  ('Cardiology'),
+  ('Dermatology'),
+  ('Pediatrics'),
+  ('Neurology'),
+  ('Orthopedics');
