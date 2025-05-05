@@ -28,3 +28,23 @@ CREATE TABLE patient (
     dob DATE NOT NULL,
     phone VARCHAR(15) NOT NULL UNIQUE
 );
+
+-- Table: appointment
+CREATE TABLE appointment (
+    appointmentID INT AUTO_INCREMENT PRIMARY KEY,
+    patientID INT NOT NULL,
+    doctorID INT NOT NULL,
+    appointment_date DATETIME NOT NULL,
+    status ENUM('booked','completed','cancelled') NOT NULL DEFAULT 'booked',
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (patientID)
+      REFERENCES patients(patientID)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+    FOREIGN KEY (doctorID)
+      REFERENCES doctors(doctorID)
+      ON DELETE RESTRICT
+      ON UPDATE CASCADE,
+    CONSTRAINT uc_patient_doctor_datetime UNIQUE (patientID, doctorID, appointment_date)
+);
