@@ -1,6 +1,12 @@
 from rest_framework import generics, permissions
 from .models import Task
 from .serializers import TaskSerializer
+from django.http import JsonResponse
+
+def api_root(request):
+    return JsonResponse({
+        "tasks": "/api/tasks/"
+    })
 
 # List all tasks or create a new task (only for the authenticated user)
 class TaskListCreateView(generics.ListCreateAPIView): 
